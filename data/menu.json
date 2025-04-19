@@ -1,0 +1,23 @@
+[
+  {
+    "id": "1745068468.981188",
+    "name": "Филаделфия",
+    "description": "ориз, нори, сьомга, Филаделфия, краставица 310 гр 8 бр",
+    "price": 23,
+    "image": "AgACAgIAAxkBAAMdaAOhtK_pJbPUE_XUZNbrVeTcbjkAAr70MRtUqCFIBQjrUUgv5zcBAAMCAAN4AAM2BA"
+  },
+  {
+    "id": "1745077126.083217",
+    "name": "Калифорния",
+    "description": "ориз, нори, скариди, Филаделфия, краставица, авокадо, хайвер Тобико 270 гр 8 бр",
+    "price": 19,
+    "image": "AgACAgIAAxkBAANRaAPDhpzW5DxP3jFoqtvd_NJNye4AAojuMRuvAxlIu-XCc-ywn2IBAAMCAAN4AAM2BA"
+  },
+  {
+    "id": "1745077181.568077",
+    "name": "Зелен дракон",
+    "description": "ориз, нори, сьомга, Филаделфия, краставица, авокадо\n270 гр 8 бр",
+    "price": 18,
+    "image": "AgACAgIAAxkBAANaaAPDvQyCb8hDUBC8AAH8cybg4xwZAAKG7jEbrwMZSPQ4ab3D099nAQADAgADeAADNgQ"
+  }
+]
