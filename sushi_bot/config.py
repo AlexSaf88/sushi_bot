@@ -1,8 +1,8 @@
 import json
 from pathlib import Path
 
-TOKEN = '7040262724:AAHCRLBB7Zexob_BrPtLb-Gc9ddiBM-5PVo'
-ADMIN_ID = 157080971
+TOKEN = ''
+ADMIN_ID = 0
 DELIVERY_COST = 10
 
 CONFIG_PATH = Path("data/work_hours.json")
