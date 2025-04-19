@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 TOKEN = ''
-ADMIN_ID =
+ADMIN_ID = 0
 DELIVERY_COST = 10
 
 CONFIG_PATH = Path("data/work_hours.json")
