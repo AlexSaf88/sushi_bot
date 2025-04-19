@@ -14,6 +14,7 @@ class CancelOrderFSM(StatesGroup):
 class WorkHoursFSM(StatesGroup):
     waiting_for_open = State()
     waiting_for_close = State()
+    waiting_for_days = State()
 
 class AddDishFSM(StatesGroup):
     name = State()
@@ -130,11 +131,22 @@ async def set_close_time(message: Message, state: FSMContext):
     try:
         datetime.strptime(message.text, "%H:%M")
         WORK_HOURS["close"] = message.text
-        save_work_hours()
-        await message.answer(f"✅ Время работы обновлено: {WORK_HOURS['open']} - {WORK_HOURS['close']}")
-        await state.clear()
+        await state.set_state(WorkHoursFSM.waiting_for_days)
+        await message.answer("Введите дни работы через запятую (например: Пн, Вт, Ср):")
     except ValueError:
         await message.answer("Неверный формат. Попробуйте снова (например, 22:00).")
+
+@router.message(WorkHoursFSM.waiting_for_days)
+async def set_work_days(message: Message, state: FSMContext):
+    valid_days = ["Пн", "Вт", "Ср", "Чт", "Пт", "Сб", "Вс"]
+    days = [d.strip().capitalize() for d in message.text.split(",") if d.strip() in valid_days]
+    if not days:
+        await message.answer("Введите допустимые дни (например: Пн, Вт, Ср). Допустимые значения: Пн, Вт, Ср, Чт, Пт, Сб, Вс")
+        return
+    WORK_HOURS["days"] = days
+    save_work_hours()
+    await message.answer(f"✅ Время работы обновлено: {WORK_HOURS['open']} - {WORK_HOURS['close']}\nДни: {', '.join(WORK_HOURS['days'])}")
+    await state.clear()
 
 @router.callback_query()
 async def handle_admin_callback(callback: CallbackQuery, state: FSMContext):
