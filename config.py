@@ -1,8 +1,9 @@
+import os
 import json
 from pathlib import Path
 
-TOKEN = ''
-ADMIN_ID = 0
+TOKEN = os.getenv("TOKEN")
+ADMIN_ID = int(os.getenv("ADMIN_ID", "0"))
 DELIVERY_COST = 10
 
 CONFIG_PATH = Path("data/work_hours.json")
